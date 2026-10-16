@@ -12,12 +12,12 @@ Uso (Rhino 8, componente "Python 3 Script" de Grasshopper):
        pestanas  (str)  <- opcional: "Pufferfish, Kangaroo2" = solo esas pestañas
        excluir   (str)  <- opcional: pestañas a saltar, separadas por coma
        carpeta   (str)  <- opcional: dónde escribir
-                           (por defecto: ~/notas/Wiki Rhino/raw/grasshopper/catalogo)
+                           (por defecto: ~/notas-cad/Wiki Rhino/raw/grasshopper/catalogo)
      Salida:
        info      (str)  <- resumen de lo que hizo (conectar un Panel)
   3. Presionar el botón con "pestanas" vacío -> exporta TODO de una vez: Grasshopper nativo
      (Params, Maths, Sets, Vector, Curve, Surface, Mesh, ...) + todos los plugins instalados.
-     Tarda 1-2 minutos. Solo "ejecutar" e "info" son necesarias; las demás entradas son opcionales.
+     Tarda 1 o 2 minutos. Solo "ejecutar" e "info" son necesarias; las demás entradas son opcionales.
   4. (Opcional) Para probar o actualizar una sola pestaña: pestanas = "Pufferfish".
   5. En una terminal, desde la carpeta "Wiki Rhino":
        python herramientas/traducir_catalogo.py aplicar      (descripciones al español)
@@ -49,7 +49,7 @@ try:
 except ImportError:  # fuera de Rhino (pruebas): solo se usa la parte que escribe Markdown
     EN_GH = False
 
-CARPETA_DEFECTO = os.path.join(os.path.expanduser("~"), "notas", "Wiki Rhino", "raw", "grasshopper", "catalogo")
+CARPETA_DEFECTO = os.path.join(os.path.expanduser("~"), "notas-cad", "Wiki Rhino", "raw", "grasshopper", "catalogo")
 PREFIJO = "Catálogo - "
 
 
@@ -259,7 +259,7 @@ def escribir_catalogo(registros, carpeta, meta, omitidos=None, errores=(), parci
         "",
     ]
     if parcial:
-        l += ["> ⚠️ Exportación **parcial** (se usó `pestanas` o `excluir`). Ejecutar sin filtros para el catálogo completo.", ""]
+        l += ["> Exportación **parcial** (se usó `pestanas` o `excluir`). Ejecutar sin filtros para el catálogo completo.", ""]
     l += ["| Pestaña | Objetos | Librería(s) |", "|---|---|---|"]
     for tab, n, libs, archivo in resumen:
         l.append("| [[{}\\|{}]] | {} | {} |".format(archivo[:-3], _txt(tab), n, _txt(", ".join(libs)) or "—"))
