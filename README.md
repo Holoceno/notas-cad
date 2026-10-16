@@ -30,4 +30,4 @@ Si encuentras un error o tienes un apunte que sume, avísame o abre un issue y l
 
 <em> Clic en la pestaña Issues, luego en el botón verde New issue, escribes título y descripción, y lo envías.
 
-Un atajo: puedes ir directo al formulario agregando /issues/new a la dirección del repo, onda github.com/Holoceno/notas-cad/issues o mas facil aún, dando [click aquí](github.com/Holoceno/notas-cad/issues)</em>    
+Un atajo: puedes ir directo al formulario agregando /issues/new a la dirección del repo, onda github.com/Holoceno/notas-cad/issues o mas facil aún, dando [click aquí](https://www.github.com/Holoceno/notas-cad/issues)</em>    
