@@ -1,6 +1,6 @@
 # notas-cad
 
-Apuntes de Rhino, Grasshopper, RhinoCommon, Python y fabricación digital que he ido juntando mientras aprendo. Es una bóveda de Obsidian: se abre la carpeta como bóveda y se navega desde `Inicio.md`.
+Apuntes de Rhino, Grasshopper, RhinoCommon, Python y fabricación digital que he ido juntando mientras trabajo. Es una boveda de Obsidian: se abre la carpeta como boveda y se navega desde `Inicio.md`.
 
 No es documentación oficial ni está terminada. Lo armé para no tener que resolver dos veces lo mismo, y lo comparto por si a alguien más le sirve.
 
@@ -18,7 +18,7 @@ No es documentación oficial ni está terminada. Lo armé para no tener que reso
 
 La wiki sigue un método que tomé de otro repo de "segundo cerebro": las fuentes se guardan sin tocar en `raw/` (por ejemplo con Web Clipper) y desde ahí se escriben las páginas de `wiki/`, siempre citando de dónde sale cada cosa. Las reglas están en `Wiki Rhino/CLAUDE.md`, pensadas para trabajar la wiki con un asistente de IA, pero se pueden seguir a mano.
 
-Las muestras y guías de `raw/` son de McNeel (developer.rhino3d.com), copiadas de su repositorio público. Los créditos son suyos.
+Las muestras y guías de `raw/` son una mezcla entre lo que sube McNeel (developer.rhino3d.com), copiadas de su repositorio público, y los casos practicos que he usado ultimamente.
 
 ## Etiquetas
 
@@ -26,4 +26,8 @@ Cada nota tiene etiquetas en el frontmatter (`tipo/` + tema). El vocabulario y c
 
 ## Si quieres aportar
 
-Si encuentras un error o tienes un apunte que sume, avísame o abre un issue.
+Si encuentras un error o tienes un apunte que sume, avísame o abre un issue y lo reviso en cuanto pueda.
+
+<em> Clic en la pestaña Issues, luego en el botón verde New issue, escribes título y descripción, y lo envías.
+
+Un atajo: puedes ir directo al formulario agregando /issues/new a la dirección del repo, onda github.com/Holoceno/notas-cad/issues o mas facil aún, dando [click aquí](github.com/Holoceno/notas-cad/issues)</em>    
