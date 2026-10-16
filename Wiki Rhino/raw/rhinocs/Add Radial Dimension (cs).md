@@ -1,0 +1,60 @@
+---
+title: "Add Radial Dimension"
+source: "https://developer.rhino3d.com/samples/rhinocommon/add-radial-dimension/"
+author:
+  - "[[Robert McNeel & Associates]]"
+created: 2026-10-13
+description: "Demonstrates how to add radial dimensions to a selected curve."
+tags: [tipo/muestra, software/rhinocommon, lenguaje/csharp]
+palabras-clave: [create, radial, dimensions, Other]
+---
+Demonstrates how to add radial dimensions to a selected curve.
+
+```cs
+partial class Examples
+{
+  public static Rhino.Commands.Result AddRadialDimension(Rhino.RhinoDoc doc)
+  {
+    ObjRef obj_ref;
+    var rc = RhinoGet.GetOneObject("Select curve for radius dimension",
+      true, ObjectType.Curve, out obj_ref);
+    if (rc != Result.Success)
+      return rc;
+    double curve_parameter;
+    var curve = obj_ref.CurveParameter(out curve_parameter);
+    if (curve == null)
+      return Result.Failure;
+
+    if (curve.IsLinear() || curve.IsPolyline())
+    {
+      RhinoApp.WriteLine("Curve must be non-linear.");
+      return Result.Nothing;
+    }
+
+    // in this example just deal with planar curves
+    if (!curve.IsPlanar())
+    {
+      RhinoApp.WriteLine("Curve must be planar.");
+      return Result.Nothing;
+    }
+
+    var point_on_curve = curve.PointAt(curve_parameter);
+    var curvature_vector = curve.CurvatureAt(curve_parameter);
+    var len = curvature_vector.Length;
+    if (len < RhinoMath.SqrtEpsilon)
+    {
+      RhinoApp.WriteLine("Curve is almost linear and therefore has no curvature.");
+      return Result.Nothing;
+    }
+
+    var center = point_on_curve + (curvature_vector/(len*len));
+    Plane plane;
+    curve.TryGetPlane(out plane);
+    var radial_dimension =
+      new RadialDimension(center, point_on_curve, plane.XAxis, plane.Normal, 5.0);
+    doc.Objects.AddRadialDimension(radial_dimension);
+    doc.Views.Redraw();
+    return Result.Success;
+  }
+}
+```

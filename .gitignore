@@ -1,0 +1,10 @@
+# Estado de la ventana de Obsidian: cambia en cada equipo, no se sincroniza
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.trash/
+.DS_Store
+
+# Caché de Python (se genera solo al correr los scripts)
+__pycache__/
+*.pyc

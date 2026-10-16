@@ -1,0 +1,29 @@
+---
+title: "Planar Surface"
+source: "https://developer.rhino3d.com/samples/rhinocommon/planar-surface/"
+author:
+  - "[[Robert McNeel & Associates]]"
+created: 2026-10-13
+description: "Demonstrates how to create a planar surface from a rectangle."
+tags: [tipo/muestra, software/rhinocommon, lenguaje/python]
+palabras-clave: [create, plane, surface, Other]
+---
+Demonstrates how to create a planar surface from a rectangle.
+
+```python
+import Rhino;
+import rhinoscriptsyntax as rs
+
+def RunCommand():
+    rc, corners = Rhino.Input.RhinoGet.GetRectangle()
+    if rc != Rhino.Commands.Result.Success:
+        return rc
+
+    plane = Rhino.Geometry.Plane(corners[0], corners[1], corners[2])
+    u_dir = rs.Distance(corners[0], corners[1])
+    v_dir = rs.Distance(corners[1], corners[2])
+    rs.AddPlaneSurface(plane, u_dir, v_dir)
+
+if __name__ == "__main__":
+    RunCommand()
+```

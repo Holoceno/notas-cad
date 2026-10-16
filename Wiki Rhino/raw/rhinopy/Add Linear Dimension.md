@@ -1,0 +1,112 @@
+---
+title: "Add Linear Dimension"
+source: "https://developer.rhino3d.com/samples/rhinocommon/add-linear-dimension/"
+author:
+  - "[[Robert McNeel & Associates]]"
+published:
+created: 2026-05-03
+description: "Rhinoceros 3D: Demonstrates how to add a linear dimension to a Rhino model."
+tags:
+  - "clippings"
+---
+Demonstrates how to add a linear dimension to a Rhino model.
+
+```cs
+partial class Examples
+
+{
+
+  public static Rhino.Commands.Result AddLinearDimension(Rhino.RhinoDoc doc)
+
+  {
+
+    Rhino.Geometry.LinearDimension dimension;
+
+    Rhino.Commands.Result rc = Rhino.Input.RhinoGet.GetLinearDimension(out dimension);
+
+    if (rc == Rhino.Commands.Result.Success && dimension != null)
+
+    {
+
+      if (doc.Objects.AddLinearDimension(dimension) == Guid.Empty)
+
+        rc = Rhino.Commands.Result.Failure;
+
+      else
+
+        doc.Views.Redraw();
+
+    }
+
+    return rc;
+
+  }
+
+}
+```
+
+```vbnet
+Partial Friend Class Examples
+
+  Public Shared Function AddLinearDimension(ByVal doc As Rhino.RhinoDoc) As Rhino.Commands.Result
+
+    Dim dimension As Rhino.Geometry.LinearDimension = Nothing
+
+    Dim rc As Rhino.Commands.Result = Rhino.Input.RhinoGet.GetLinearDimension(dimension)
+
+    If rc Is Rhino.Commands.Result.Success AndAlso dimension IsNot Nothing Then
+
+      If doc.Objects.AddLinearDimension(dimension) = Guid.Empty Then
+
+        rc = Rhino.Commands.Result.Failure
+
+      Else
+
+        doc.Views.Redraw()
+
+      End If
+
+    End If
+
+    Return rc
+
+  End Function
+
+End Class
+```
+
+```python
+import Rhino
+
+import scriptcontext
+
+import System.Guid
+
+ 
+
+def AddLinearDimension():
+
+    rc, dimension = Rhino.Input.RhinoGet.GetLinearDimension()
+
+    if rc==Rhino.Commands.Result.Success:
+
+        if scriptcontext.doc.Objects.AddLinearDimension(dimension)==System.Guid.Empty:
+
+            rc = Rhino.Commands.Result.Failure
+
+        else:
+
+            scriptcontext.doc.Views.Redraw()
+
+    return rc
+
+ 
+
+ 
+
+if __name__=="__main__":
+
+    AddLinearDimension()
+```
+
+<iframe src="https://accounts.rhino3d.com/login-status-iframe"></iframe>
